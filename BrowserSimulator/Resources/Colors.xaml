@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="CustomBorder">#254458</Color>
+    <Color x:Key="BackgroundWindow">#0C171D</Color>
+    <Color x:Key="BackgroundPanel">#1F2D3B</Color>
+    <Color x:Key="BackgroundEditor">#225D79</Color>
+    <Color x:Key="Text">#fff</Color>
+
+    <SolidColorBrush x:Key="BorderColor" Color="{DynamicResource CustomBorder}" />
+    <SolidColorBrush x:Key="WindowBackground" Color="{DynamicResource BackgroundWindow}" />
+    <SolidColorBrush x:Key="PanelBackground" Color="{DynamicResource BackgroundPanel}" />
+    <SolidColorBrush x:Key="EditorBackground" Color="{DynamicResource BackgroundEditor}" />
+    <SolidColorBrush x:Key="TextColor" Color="{DynamicResource Text}" />
+    <SolidColorBrush x:Key="TextTag" Color="LightGray" />
+
+
+
+</ResourceDictionary>
