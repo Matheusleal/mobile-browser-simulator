@@ -24,10 +24,10 @@ namespace BrowserSimulator
             InitializeComponent();
             DataContext = this;
             _window = App.Current.MainWindow;
-            
+
             RegisterEnvFlags();
             SetupWindow();
-            
+
             _phoneTypes = new();
             _phoneTypes = Lists.GetPhoneTypes();
 
@@ -72,7 +72,7 @@ namespace BrowserSimulator
 
             _window.ResizeMode = ResizeMode.NoResize;
         }
-        private void RegisterEnvFlags()
+        private static void RegisterEnvFlags()
         {
             Environment.SetEnvironmentVariable("WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS", "--disable-features=msSmartScreenProtection");
         }
@@ -82,15 +82,20 @@ namespace BrowserSimulator
         }
 
         #region [EVENTS]
-        private async void Go_Click(object sender, RoutedEventArgs e)
+        private void Go_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 Browser.CoreWebView2.Navigate(AddressBar.Text);
             }
-            catch (FormatException ex)
+            catch (Exception ex)
             {
-                ExecScript($"alert('Wrong URL: {AddressBar.Text}')");
+                OpenPopUp(new PopUpProps
+                {
+                    Title = "Wrong URL",
+                    Message = ex.Message,
+                    IsError = true
+                });
             }
         }
         private void GoBack_Click(object sender, RoutedEventArgs e)
@@ -119,6 +124,16 @@ namespace BrowserSimulator
             args.Request.Headers.SetHeader("sec-ch-ua-platform", "Android");
             args.Request.Headers.SetHeader("sec-ch-ua-platform-version", "10");
             args.Request.Headers.SetHeader("User-Agent", "Mozilla/5.0 (Linux; Android 10; SM-G981B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.162 Mobile Safari/537.36");
+        }
+
+        private void OpenPopUp(PopUpProps props)
+        {
+            var popup = new PopUpWindow(props)
+            {
+                Owner = this
+            };
+
+            popup.Show();
         }
 
         #endregion

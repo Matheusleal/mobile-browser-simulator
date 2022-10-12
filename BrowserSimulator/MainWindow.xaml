@@ -80,7 +80,7 @@
             VerticalAlignment="Stretch"
             NavigationCompleted="Navigated"
             NavigationStarting="Navigating"
-            Source="https://www.microsoft.com" />
+            Source="https://github.com/Matheusleal/mobile-browser-simulator" />
 
     </Grid>
 </Window>
