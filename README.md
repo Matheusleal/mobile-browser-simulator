@@ -1,6 +1,6 @@
 # Mobile Web Browser Simulator
 
-This application was made with C# WPF, using WebView2. Its use is exclusively to assist you to develop websites with a good experience for users of mobile devices. 
+This application was made with C#, dotnet 6 and WPF, using WebView2. Its use is exclusively to assist you to develop websites with a good experience for users of mobile devices. 
 
 This application has by default several screen sizes according to the market standard smartphone/tablet models.
 
